@@ -3,35 +3,14 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-
-const galleryImages = [
-  {
-    src: "/images/gallery-facial.png",
-    alt: "Relaxing facial massage treatment",
-    className: "gallery-main",
-  },
-  {
-    src: "/images/gallery-spa-products.png",
-    alt: "Luxury spa products, candles and towels",
-    className: "gallery-wide",
-  },
-  {
-    src: "/images/gallery-mens-facial.png",
-    alt: "Professional men's facial treatment",
-    className: "gallery-small",
-  },
-  {
-    src: "/images/gallery-bath-spa.png",
-    alt: "Luxury relaxing spa bath treatment",
-    className: "gallery-small",
-  },
-];
+import { gallerySectionData, siteDecorativeAssets } from "@/data";
 
 export default function GallerySection() {
   const reduceMotion = useReducedMotion();
+  const galleryImages = gallerySectionData.items.slice(0, 4);
 
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
+    <section id="gallery" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
 
       {/* TOP RIGHT LEAF IMAGE */}
       <motion.div
@@ -42,7 +21,7 @@ export default function GallerySection() {
         className="pointer-events-none absolute -right-5 -top-4 z-0 w-[125px] sm:w-[185px] lg:w-[250px]"
       >
         <Image
-          src="/images/leaf-top.png"
+          src={siteDecorativeAssets.leafTop}
           alt=""
           width={250}
           height={250}
@@ -59,7 +38,7 @@ export default function GallerySection() {
         className="pointer-events-none absolute -bottom-4 -left-4 z-0 w-[140px] sm:w-[200px] lg:w-[260px]"
       >
         <Image
-          src="/images/leaf-bottom.png"
+          src={siteDecorativeAssets.leafBottom}
           alt=""
           width={260}
           height={220}
@@ -67,7 +46,7 @@ export default function GallerySection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-[1700px] px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* SECTION HEADER */}
         <motion.div
@@ -91,7 +70,7 @@ export default function GallerySection() {
               className="relative h-[48px] w-[65px] sm:h-[58px] sm:w-[80px]"
             >
               <Image
-                src="/images/lotus-icon.png"
+                src={siteDecorativeAssets.lotus}
                 alt=""
                 fill
                 sizes="80px"
@@ -105,14 +84,14 @@ export default function GallerySection() {
 
           {/* SMALL HEADING */}
           <p className="font-serif text-lg font-semibold tracking-wide text-[#815b38] sm:text-xl">
-            Our Gallery
+            {gallerySectionData.title[0]}
           </p>
 
           {/* MAIN HEADING */}
           <h2 className="mt-3 font-serif text-[38px] font-bold leading-tight tracking-[-1px] text-[#183a29] sm:text-[50px] md:text-[58px] lg:text-[62px]">
-            Latest Projects{" "}
+            {gallerySectionData.homeSection.title}{" "}
             <span className="italic text-[#70885c]">
-              Gallery
+              {gallerySectionData.homeSection.highlight}
             </span>
           </h2>
 

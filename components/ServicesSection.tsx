@@ -3,40 +3,11 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-
-const services = [
-  {
-    title: "Haircut",
-    description:
-      "Classic and modern haircuts to suit your style and personality.",
-    image: "/images/haircut.png",
-    icon: "/images/haircut-icon.png",
-  },
-  {
-    title: "Hairdryer",
-    description:
-      "Professional hair drying and styling for a smooth, polished look.",
-    image: "/images/hairdryer.png",
-    icon: "/images/hairdryer-icon.png",
-  },
-  {
-    title: "Hair Coloring",
-    description:
-      "Enhance your look with vibrant, long-lasting hair color treatments.",
-    image: "/images/hair-coloring.png",
-    icon: "/images/coloring-icon.png",
-  },
-  {
-    title: "Hair Style",
-    description:
-      "Trendy and personalized hairstyles for every occasion.",
-    image: "/images/hair-style.png",
-    icon: "/images/hairstyle-icon.png",
-  },
-];
+import { servicesData, siteDecorativeAssets } from "@/data";
 
 export default function ServicesSection() {
   const reduceMotion = useReducedMotion();
+  const services = servicesData.items.slice(0, servicesData.homeCount);
 
   const containerVariants = {
     hidden: {},
@@ -77,7 +48,7 @@ export default function ServicesSection() {
         className="pointer-events-none absolute -right-4 -top-5 z-0 w-[125px] sm:w-[190px] lg:w-[250px]"
       >
         <Image
-          src="/images/leaf-top.png"
+          src={siteDecorativeAssets.leafTop}
           alt=""
           width={250}
           height={250}
@@ -94,7 +65,7 @@ export default function ServicesSection() {
         className="pointer-events-none absolute -bottom-5 -left-4 z-0 w-[125px] sm:w-[190px] lg:w-[250px]"
       >
         <Image
-          src="/images/towel-bottom.png"
+          src={siteDecorativeAssets.towelBottom}
           alt=""
           width={250}
           height={200}
@@ -102,7 +73,7 @@ export default function ServicesSection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-14">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
       
         <div className="mx-auto mb-10 max-w-[900px] text-center sm:mb-14">
@@ -119,7 +90,7 @@ export default function ServicesSection() {
             className="mb-3 flex justify-center"
           >
             <Image
-              src="/images/lotus-icon.png"
+              src={siteDecorativeAssets.lotus}
               alt=""
               width={75}
               height={65}
@@ -138,7 +109,7 @@ export default function ServicesSection() {
             <span className="h-[2px] w-12 bg-[#899b7c] sm:w-20" />
 
             <span className="font-serif text-lg font-semibold text-[#587247] sm:text-xl">
-              Our Services
+              {servicesData.eyebrow}
             </span>
 
             <span className="h-[2px] w-12 bg-[#899b7c] sm:w-20" />
@@ -152,9 +123,9 @@ export default function ServicesSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-serif text-[34px] font-bold leading-[1.2] tracking-tight text-[#153c2b] sm:text-[43px] md:text-[49px] lg:text-[52px]"
           >
-            Premium Beauty &{" "}
+            {servicesData.title}{" "}
             <span className="italic text-[#71875c]">
-              Spa Services
+              {servicesData.highlight}
             </span>
           </motion.h2>
 
@@ -166,9 +137,7 @@ export default function ServicesSection() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mx-auto mt-4 max-w-[850px] text-[15px] leading-[1.7] text-[#505b62] sm:text-[17px] md:text-[19px]"
           >
-            Experience a wide range of professional beauty and
-            wellness treatments designed to refresh, rejuvenate
-            and enhance your natural glow.
+            {servicesData.text}
           </motion.p>
         </div>
 
@@ -180,7 +149,7 @@ export default function ServicesSection() {
           viewport={{ once: true, amount: 0.12 }}
           className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               key={service.title}
               variants={cardVariants}
@@ -199,7 +168,7 @@ export default function ServicesSection() {
               <div className="relative h-[165px] w-[45%] shrink-0 overflow-hidden rounded-[23px] sm:h-[195px] md:h-[180px] lg:h-[200px] xl:h-[225px]">
 
                 <Image
-                  src={service.image}
+                  src={service.homeImage}
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 45vw, 280px"
@@ -224,7 +193,7 @@ export default function ServicesSection() {
                   className="mb-2 flex h-[48px] w-[48px] shrink-0 items-center justify-center rounded-full bg-[#f5e9d0] sm:mb-3 sm:h-[58px] sm:w-[58px]"
                 >
                   <Image
-                    src={service.icon}
+                    src={service.homeIcon}
                     alt=""
                     width={38}
                     height={38}
@@ -246,7 +215,7 @@ export default function ServicesSection() {
 
       
                 <p className="text-[13px] leading-[1.55] text-[#48545d] sm:text-[15px] md:text-[14px] lg:text-[15px] xl:text-[16px]">
-                  {service.description}
+                  {service.text}
                 </p>
 
               </div>

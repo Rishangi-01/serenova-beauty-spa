@@ -3,9 +3,11 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { aboutSectionData, siteDecorativeAssets } from "@/data";
 
 export default function AboutSection() {
   const reduceMotion = useReducedMotion();
+  const { homeSection } = aboutSectionData;
 
   const reveal = {
     hidden: {
@@ -22,15 +24,10 @@ export default function AboutSection() {
     },
   };
 
-  const images = {
-    massage: "/images/about-massage.png",
-    facial: "/images/about-facial.png",
-  };
-
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#fcf9f5] py-20 sm:py-24 lg:py-28">
+    <section id="about" className="relative isolate w-full overflow-hidden bg-[#fcf9f5] py-20 sm:py-24 lg:py-28">
 
-      {/* TOP RIGHT LEAF IMAGE */}
+
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -39,7 +36,7 @@ export default function AboutSection() {
         className="pointer-events-none absolute -right-3 -top-5 z-0 w-[115px] sm:w-[175px] lg:w-[230px]"
       >
         <Image
-          src="/images/leaf-top.png"
+          src={siteDecorativeAssets.leafTop}
           alt=""
           width={230}
           height={230}
@@ -47,7 +44,7 @@ export default function AboutSection() {
         />
       </motion.div>
 
-      {/* BOTTOM LEFT LEAF IMAGE */}
+
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -56,7 +53,7 @@ export default function AboutSection() {
         className="pointer-events-none absolute -bottom-4 -left-3 z-0 w-[125px] sm:w-[180px] lg:w-[240px]"
       >
         <Image
-          src="/images/leaf-bottom.png"
+          src={siteDecorativeAssets.leafBottom}
           alt=""
           width={230}
           height={185}
@@ -64,9 +61,12 @@ export default function AboutSection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto grid max-w-[1700px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-12 xl:gap-20 xl:px-16">
+      <div className="relative z-10 mx-auto grid max-w-[1600px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-12 xl:gap-20 xl:px-16">
 
-        {/* LEFT IMAGE COLLAGE */}
+
+
+
+
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -75,7 +75,7 @@ export default function AboutSection() {
           className="relative mx-auto flex w-full max-w-[730px] items-center justify-center gap-5 sm:gap-7 lg:gap-6 xl:gap-8"
         >
 
-          {/* FIRST IMAGE */}
+
           <motion.div
             whileHover={reduceMotion ? undefined : {
               y: -8,
@@ -84,8 +84,8 @@ export default function AboutSection() {
             className="relative h-[350px] w-[57%] overflow-hidden rounded-tl-[100px] rounded-br-[65px] rounded-tr-[8px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:h-[490px] lg:h-[440px] xl:h-[530px]"
           >
             <Image
-              src={images.massage}
-              alt="Relaxing luxury spa massage treatment"
+              src={aboutSectionData.mainImage}
+              alt={aboutSectionData.mainImageAlt}
               fill
               priority
               sizes="(max-width: 768px) 57vw, 350px"
@@ -93,7 +93,7 @@ export default function AboutSection() {
             />
           </motion.div>
 
-          {/* SECOND IMAGE */}
+
           <motion.div
             initial={{ opacity: 0, y: 45 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,15 +106,15 @@ export default function AboutSection() {
             className="relative mt-16 h-[310px] w-[43%] overflow-hidden rounded-tl-[35px] rounded-tr-[8px] rounded-br-[95px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:mt-24 sm:h-[420px] lg:mt-24 lg:h-[360px] xl:mt-28 xl:h-[440px]"
           >
             <Image
-              src={images.facial}
-              alt="Premium facial and skincare spa treatment"
+              src={aboutSectionData.familyImage}
+              alt={aboutSectionData.familyImageAlt}
               fill
               sizes="(max-width: 768px) 43vw, 280px"
               className="object-cover transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
 
-          {/* CENTER ROUND SPA BADGE IMAGE */}
+
           <motion.div
             initial={{ opacity: 0, scale: 0.5, rotate: -25 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -135,8 +135,8 @@ export default function AboutSection() {
               }}
             >
               <Image
-                src="/images/about-seal.png"
-                alt="Beauty and Spa Since 2015"
+                src={homeSection.sealImage}
+                alt={homeSection.sealImageAlt}
                 width={165}
                 height={165}
                 className="h-auto w-full object-contain drop-shadow-lg"
@@ -146,10 +146,10 @@ export default function AboutSection() {
 
         </motion.div>
 
-        {/* RIGHT CONTENT */}
+
         <div className="relative z-10">
 
-          {/* SECTION LABEL */}
+
           <motion.div
             variants={reveal}
             initial="hidden"
@@ -158,13 +158,13 @@ export default function AboutSection() {
             className="mb-5 flex items-center gap-5"
           >
             <span className="font-serif text-lg font-semibold text-[#647e52] sm:text-xl">
-              About Serenova
+              {homeSection.eyebrow}
             </span>
 
             <span className="h-[2px] w-20 bg-[#a8b69b] sm:w-24" />
           </motion.div>
 
-          {/* HEADING */}
+
           <motion.h2
             variants={reveal}
             initial="hidden"
@@ -173,14 +173,14 @@ export default function AboutSection() {
             transition={{ delay: 0.15 }}
             className="font-serif text-[36px] font-medium leading-[1.2] tracking-[-1px] text-[#171717] sm:text-[45px] md:text-[52px] lg:text-[44px] xl:text-[56px]"
           >
-            Your Destination for
+            {homeSection.title[0]}
 
             <span className="mt-1 block italic text-[#637e50]">
-              Beauty, Relaxation & Wellness
+              {homeSection.title.slice(1).join(" ")}
             </span>
           </motion.h2>
 
-          {/* DESCRIPTION */}
+
           <motion.div
             variants={reveal}
             initial="hidden"
@@ -190,10 +190,7 @@ export default function AboutSection() {
             className="mt-8 border-l-[5px] border-[#647e52] py-1 pl-6 sm:mt-9 sm:pl-7"
           >
             <p className="max-w-[750px] text-[15px] font-medium leading-[1.8] text-[#414141] sm:text-[17px] md:text-[18px] xl:text-[19px]">
-              At Serenova, we believe that beauty is a reflection of
-              overall wellness. Our expert care, premium treatments
-              and relaxing ambience are designed to rejuvenate your
-              body, mind and skin.
+              {aboutSectionData.homeText}
             </p>
           </motion.div>
 
@@ -208,52 +205,30 @@ export default function AboutSection() {
           >
 
           
-            <div className="flex items-center gap-3 sm:gap-5">
+            {homeSection.stats.map((stat, index) => (
+            <div key={stat.label} className={`flex items-center gap-3 sm:gap-5 ${index === 1 ? "border-l border-[#d6ddca] pl-4 sm:pl-8" : ""}`}>
 
-              <div className="flex h-[65px] w-[65px] shrink-0 items-center justify-center rounded-[25px_25px_5px_25px] bg-[#eff0e4] sm:h-[85px] sm:w-[85px]">
+              <div className={`flex h-[65px] w-[65px] shrink-0 items-center justify-center bg-[#eff0e4] sm:h-[85px] sm:w-[85px] ${index === 0 ? "rounded-[25px_25px_5px_25px]" : "rounded-[25px_25px_25px_5px]"}`}>
                 <Image
-                  src="/images/lotus-icon.png"
+                  src={stat.icon}
                   alt=""
-                  width={55}
-                  height={55}
+                  width={stat.width}
+                  height={stat.height}
                   className="h-10 w-10 object-contain sm:h-12 sm:w-12"
                 />
               </div>
 
               <div>
                 <h3 className="font-serif text-[42px] font-semibold leading-none text-[#637e50] sm:text-[55px] lg:text-[48px] xl:text-[60px]">
-                  10+
+                  {stat.value}
                 </h3>
 
                 <p className="mt-2 font-serif text-[14px] font-semibold text-[#202020] sm:text-[17px] lg:text-[15px] xl:text-[18px]">
-                  Years of Experience
+                  {stat.label}
                 </p>
               </div>
             </div>
-
-            
-            <div className="flex items-center gap-3 border-l border-[#d6ddca] pl-4 sm:gap-5 sm:pl-8">
-
-              <div className="flex h-[65px] w-[65px] shrink-0 items-center justify-center rounded-[25px_25px_25px_5px] bg-[#eff0e4] sm:h-[85px] sm:w-[85px]">
-                <Image
-                  src="/images/experts-icon.png"
-                  alt=""
-                  width={60}
-                  height={60}
-                  className="h-10 w-10 object-contain sm:h-12 sm:w-12"
-                />
-              </div>
-
-              <div>
-                <h3 className="font-serif text-[42px] font-semibold leading-none text-[#637e50] sm:text-[55px] lg:text-[48px] xl:text-[60px]">
-                  25+
-                </h3>
-
-                <p className="mt-2 font-serif text-[14px] font-semibold text-[#202020] sm:text-[17px] lg:text-[15px] xl:text-[18px]">
-                  Beauty Experts
-                </p>
-              </div>
-            </div>
+            ))}
 
           </motion.div>
 

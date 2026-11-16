@@ -3,30 +3,15 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-
-const specialists = [
-  {
-    name: "Dr. Neha Sharma",
-    role: "Skin Care Specialist",
-    image: "/images/home/team/dr-neha-sharma.webp",
-  },
-  {
-    name: "Dr. Priya Verma",
-    role: "Massage Specialist",
-    image: "/images/home/team/dr-priya-verma.webp",
-  },
-  {
-    name: "Dr. Anjali Gupta",
-    role: "Beauty Therapist",
-    image: "/images/home/team/dr-anjali-gupta.webp",
-  },
-];
+import { siteDecorativeAssets, teamPageData } from "@/data";
 
 export default function TeamSection() {
   const reduceMotion = useReducedMotion();
+  const team = teamPageData.homeSection;
+  const specialists = team.members;
 
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
+    <section id="team" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
 
       {/* TOP RIGHT DECORATIVE IMAGE */}
       <motion.div
@@ -37,7 +22,7 @@ export default function TeamSection() {
         className="pointer-events-none absolute -right-5 -top-3 z-0 w-[130px] sm:w-[190px] lg:w-[260px]"
       >
         <Image
-          src="/images/leaf-top.png"
+          src={siteDecorativeAssets.leafTop}
           alt=""
           width={260}
           height={180}
@@ -54,7 +39,7 @@ export default function TeamSection() {
         className="pointer-events-none absolute -bottom-3 -left-3 z-0 w-[160px] sm:w-[230px] lg:w-[300px]"
       >
         <Image
-          src="/images/team-towel-bottom.png"
+          src={siteDecorativeAssets.teamBottom}
           alt=""
           width={300}
           height={180}
@@ -62,7 +47,7 @@ export default function TeamSection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
         
         <motion.div
@@ -78,7 +63,7 @@ export default function TeamSection() {
 
             <div className="mb-2 flex items-center gap-3">
               <span className="font-serif text-base font-semibold uppercase tracking-wide text-[#94502a] sm:text-lg">
-                Expert Team
+                {team.eyebrow}
               </span>
 
               <span className="h-[2px] w-20 bg-[#b66a39] sm:w-24" />
@@ -87,10 +72,10 @@ export default function TeamSection() {
             <div className="relative flex items-center justify-between gap-2">
 
               <h2 className="font-serif text-[39px] font-bold leading-[1.05] tracking-tight text-[#143824] sm:text-[53px] lg:text-[57px] xl:text-[62px]">
-                Our Experience
+                {team.title}
                 <br />
                 <span className="italic text-[#a45a30]">
-                  Specialists
+                  {team.highlight}
                 </span>
               </h2>
 
@@ -109,7 +94,7 @@ export default function TeamSection() {
                 className="relative mr-1 hidden h-[90px] w-[105px] shrink-0 sm:block lg:mr-4"
               >
                 <Image
-                  src="/images/lotus-icon.png"
+                  src={siteDecorativeAssets.lotus}
                   alt=""
                   fill
                   sizes="105px"
@@ -126,9 +111,7 @@ export default function TeamSection() {
             <span className="hidden h-[100px] w-[2px] shrink-0 bg-[#b66a39] sm:block" />
 
             <p className="max-w-[570px] text-[16px] leading-[1.8] text-[#30343e] sm:text-[18px] lg:text-[19px]">
-              Meet our team of certified and experienced professionals
-              dedicated to providing the highest quality beauty and
-              wellness care.
+              {team.description}
             </p>
 
           </div>
@@ -214,7 +197,7 @@ export default function TeamSection() {
                     className="relative h-[30px] w-[38px]"
                   >
                     <Image
-                      src="/images/home/team/lotus-decoration.webp"
+                      src={siteDecorativeAssets.lotusDecoration}
                       alt=""
                       fill
                       sizes="38px"

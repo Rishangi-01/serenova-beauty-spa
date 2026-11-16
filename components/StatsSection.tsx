@@ -3,29 +3,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-
-const stats = [
-  {
-    number: "26+",
-    label: "Years of Experience",
-    icon: "/images/experience.png",
-  },
-  {
-    number: "100%",
-    label: "Natural Products",
-    icon: "/images/natural-products.png",
-  },
-  {
-    number: "56k+",
-    label: "Satisfied Clients",
-    icon: "/images/clients.png",
-  },
-  {
-    number: "36+",
-    label: "Specialists Team",
-    icon: "/images/specialists.png",
-  },
-];
+import { siteDecorativeAssets, statsSectionData } from "@/data";
 
 export default function StatsSection() {
   const reduceMotion = useReducedMotion();
@@ -42,7 +20,7 @@ export default function StatsSection() {
         className="pointer-events-none absolute -right-5 -top-5 z-0 w-[110px] sm:w-[160px] lg:w-[220px]"
       >
         <Image
-          src="/images/leaf-top.png"
+          src={statsSectionData.decorativeImages[1].src}
           alt=""
           width={220}
           height={220}
@@ -59,7 +37,7 @@ export default function StatsSection() {
         className="pointer-events-none absolute -bottom-2 -left-3 z-0 w-[170px] sm:w-[230px] lg:w-[320px]"
       >
         <Image
-          src="/images/leaf-bottom.png"
+          src={statsSectionData.decorativeImages[0].src}
           alt=""
           width={320}
           height={180}
@@ -67,7 +45,7 @@ export default function StatsSection() {
         />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-[1750px] px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
         {/* LOTUS DECORATION */}
         <motion.div
@@ -96,8 +74,8 @@ export default function StatsSection() {
             className="relative h-[48px] w-[75px] sm:h-[60px] sm:w-[95px]"
           >
             <Image
-              src="/images/lotus-icon.png"
-              alt="Lotus decoration"
+              src={siteDecorativeAssets.lotus}
+              alt={siteDecorativeAssets.lotusLabel}
               fill
               sizes="95px"
               className="object-contain"
@@ -110,7 +88,7 @@ export default function StatsSection() {
         {/* STATISTICS GRID */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-7">
 
-          {stats.map((stat, index) => (
+          {statsSectionData.items.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{
@@ -161,7 +139,7 @@ export default function StatsSection() {
               <div className="min-w-0 flex-1">
 
                 <h3 className="font-serif text-[38px] font-bold leading-none tracking-tight text-[#102d20] sm:text-[43px] lg:text-[40px] xl:text-[46px]">
-                  {stat.number}
+                  {stat.value}
                 </h3>
 
                 <p className="mt-3 text-[13px] font-medium leading-snug tracking-wide text-[#62676a] sm:text-[15px]">
