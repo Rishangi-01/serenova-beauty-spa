@@ -37,12 +37,15 @@ export default function Footer() {
     <footer
       aria-label={footerSectionData.ariaLabel}
       className="relative isolate overflow-hidden bg-cover bg-center bg-no-repeat lg:bg-size-[100%_100%] bg-size-auto"
-      style={{
-        backgroundImage: `url('${siteInfoData.bgImage}')`,
-      }}
     >
+      <div
+    className="pointer-events-none absolute inset-0 -z-10 hidden bg-cover lg:bg-size-[100%_100%] bg-center bg-no-repeat lg:block"
+    style={{
+      backgroundImage: `url('${siteInfoData.bgImage}')`,
+    }}
+  />
       
-      <div className="mx-auto max-w-[1600px] pb-40 pt-24 lg:pb-44 lg:pt-28 px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto max-w-[1600px] pb-20 pt-24 lg:pb-44 lg:pt-28 px-5 sm:px-8 lg:px-12 xl:px-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -232,11 +235,11 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex w-full max-w-[1000px] items-center justify-center gap-5 text-center mb-12 lg:mb-0"
+          className="flex w-full max-w-[1000px] items-center justify-center gap-5 text-center"
         >
           <span className="hidden h-[2px] w-24 bg-white/50 sm:block md:w-36" />
 
-          <p className="text-[13px] font-medium text-white sm:text-[16px] md:text-[19px]">
+          <p className="text-[13px] font-medium lg:text-white text-[#000] sm:text-[16px] md:text-[19px]">
             {footerSectionData.copyright}
           </p>
 

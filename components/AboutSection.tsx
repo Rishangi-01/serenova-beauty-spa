@@ -86,7 +86,7 @@ export default function AboutSection() {
               fill
               priority
               sizes="(max-width: 768px) 57vw, 350px"
-              className="object-cover transition-transform duration-700 hover:scale-105"
+              className="object-cover transition-transform duration-700 hover:scale-105 scale-105"
             />
           </motion.div>
 
@@ -107,7 +107,7 @@ export default function AboutSection() {
               alt={aboutSectionData.familyImageAlt}
               fill
               sizes="(max-width: 768px) 43vw, 280px"
-              className="object-cover transition-transform duration-700 hover:scale-105"
+              className="object-cover transition-transform duration-700 hover:scale-105 scale-105"
             />
           </motion.div>
 
