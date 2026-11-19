@@ -74,7 +74,7 @@ export default function Footer() {
             </p>
 
             
-            <div className="mt-7 flex items-center justify-center gap-4 lg:justify-start">
+            <div className="mt-7 flex items-center gap-4 justify-start">
               {siteInfoData.socials.map((social, index) => {
                 const Icon = socialIconMap[social.icon];
 
