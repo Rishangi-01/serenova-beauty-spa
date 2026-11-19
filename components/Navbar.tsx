@@ -99,7 +99,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex min-h-[100px] max-w-[1600px] items-center justify-between py-2 px-5 sm:px-8 lg:min-h-[115px] lg:px-12 xl:px-16">
 
-        {/* Logo */}
+        
         <Link
           href={homeLink.href}
           onClick={() => handleNavClick(homeLink)}
@@ -120,7 +120,7 @@ export default function Navbar() {
           </motion.div>
         </Link>
 
-        {/* Desktop Navigation */}
+        
         <nav
           aria-label={navigationData.ariaLabel}
           className="hidden items-center gap-3 lg:flex xl:gap-7"
@@ -145,7 +145,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile Toggle */}
+        
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={
@@ -180,7 +180,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

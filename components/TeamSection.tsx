@@ -13,7 +13,7 @@ export default function TeamSection() {
   return (
     <section id="team" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-12 sm:py-16 lg:py-16">
 
-      {/* TOP RIGHT DECORATIVE IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: 40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -30,7 +30,7 @@ export default function TeamSection() {
         />
       </motion.div>
 
-      {/* BOTTOM LEFT DECORATIVE IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -58,7 +58,7 @@ export default function TeamSection() {
           className="mb-12 grid grid-cols-1 items-center gap-7 lg:mb-16 lg:grid-cols-[0.95fr_1fr] lg:gap-14"
         >
 
-          {/* LEFT HEADING */}
+          
           <div className="relative">
 
             <div className="mb-2 flex items-center gap-3">
@@ -79,7 +79,7 @@ export default function TeamSection() {
                 </span>
               </h2>
 
-              {/* LOTUS IMAGE */}
+              
               <motion.div
                 animate={
                   reduceMotion
@@ -105,7 +105,7 @@ export default function TeamSection() {
             </div>
           </div>
 
-          {/* RIGHT DESCRIPTION */}
+          
           <div className="flex items-center gap-5 lg:gap-7">
 
             <span className="hidden h-[100px] w-[2px] shrink-0 bg-[#b66a39] sm:block" />
@@ -118,7 +118,7 @@ export default function TeamSection() {
 
         </motion.div>
 
-        {/* SPECIALISTS GRID */}
+        
         <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-10">
 
           {specialists.map((person, index) => (
@@ -152,13 +152,13 @@ export default function TeamSection() {
               className="group relative mx-auto w-full max-w-[440px] pt-3 pl-3"
             >
 
-              {/* DECORATIVE BROWN CORNER */}
-              <div className="absolute left-0 top-0 h-[125px] w-[125px] rounded-tl-[22px] border-l-[13px] border-t-[13px] border-[#c47b48] transition-all duration-500 group-hover:h-[145px] group-hover:w-[145px]" />
+              
+              <div className="absolute left-0 top-0 h-[125px] w-[125px] rounded-tl-[12px] border-l-[13px] border-t-[13px] border-[#c47b48] transition-all duration-500 group-hover:h-[145px] group-hover:w-[145px]" />
 
-              {/* MAIN CARD */}
-              <div className="relative flex h-full flex-col rounded-[21px] border border-[#f0e5dd] bg-white/90 p-3 pt-3 shadow-[0_10px_25px_rgba(112,68,40,0.10)] transition-all duration-500 group-hover:shadow-[0_20px_45px_rgba(112,68,40,0.16)] sm:p-4">
+              
+              <div className="relative flex h-full flex-col rounded-[21px] !rounded-tl-[0px] border border-[#f0e5dd] bg-white/90 p-3 pt-3 shadow-[0_10px_25px_rgba(112,68,40,0.10)] transition-all duration-500 group-hover:shadow-[0_20px_45px_rgba(112,68,40,0.16)] sm:p-4">
 
-                {/* SPECIALIST IMAGE */}
+              
                 <div className="relative h-[310px] w-full overflow-hidden rounded-[15px] bg-[#f5e9de] sm:h-[320px] lg:h-[350px] xl:h-[390px]">
 
                   <Image
@@ -173,17 +173,17 @@ export default function TeamSection() {
 
                 </div>
 
-                {/* NAME */}
+              
                 <h3 className="mt-4 text-center font-serif text-[25px] font-bold leading-tight text-[#153a25] sm:text-[27px] lg:text-[28px]">
                   {person.name}
                 </h3>
 
-                {/* ROLE BADGE */}
+              
                 <div className="mx-auto mt-3 rounded-full bg-gradient-to-r from-[#ad6134] to-[#c27b47] px-7 py-2 text-center text-[14px] font-semibold text-white shadow-sm transition-all duration-300 group-hover:shadow-md sm:text-[15px]">
                   {person.role}
                 </div>
 
-                {/* LOTUS DIVIDER */}
+              
                 <div className="mt-4 flex items-center justify-center gap-2 pb-3">
 
                   <span className="h-[1.5px] w-12 bg-[#b66a39]" />

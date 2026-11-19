@@ -180,7 +180,7 @@ export default function ServicesSection() {
               </div>
 
       
-              <div className="flex min-w-0 flex-1 flex-col justify-center py-2 pr-1 sm:py-3 sm:pr-2">
+              <a href="#contact" className="flex min-w-0 flex-1 flex-col justify-center py-2 pr-1 sm:py-3 sm:pr-2">
 
       
                 <motion.div
@@ -218,7 +218,7 @@ export default function ServicesSection() {
                   {service.text}
                 </p>
 
-              </div>
+              </a>
             </motion.div>
           ))}
         </motion.div>

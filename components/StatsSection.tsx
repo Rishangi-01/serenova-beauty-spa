@@ -11,7 +11,7 @@ export default function StatsSection() {
   return (
     <section className="relative isolate w-full overflow-hidden bg-[#fcf8f4] py-12 sm:py-16 lg:py-16">
 
-      {/* TOP RIGHT DECORATIVE IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: 35 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +28,7 @@ export default function StatsSection() {
         />
       </motion.div>
 
-      {/* BOTTOM LEFT DECORATIVE IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: -35 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -47,7 +47,7 @@ export default function StatsSection() {
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
-        {/* LOTUS DECORATION */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.5, y: 15 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -85,7 +85,7 @@ export default function StatsSection() {
           <span className="h-[2px] w-16 bg-[#c69a70] sm:w-24" />
         </motion.div>
 
-        {/* STATISTICS GRID */}
+        
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-7">
 
           {statsSectionData.items.map((stat, index) => (
@@ -119,7 +119,7 @@ export default function StatsSection() {
               className="group relative flex min-h-[135px] items-center gap-4 rounded-[25px] border border-[#ead9c8] bg-white/75 px-5 py-5 shadow-[0_6px_20px_rgba(120,85,50,0.07)] transition-all duration-500 hover:border-[#c9a27e] hover:bg-white hover:shadow-[0_15px_35px_rgba(120,85,50,0.13)] sm:min-h-[145px] sm:gap-5 sm:px-6 lg:px-7"
             >
 
-              {/* ICON CONTAINER */}
+              
               <div className="relative flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-full bg-[#f8eadb] transition-all duration-500 group-hover:scale-105 group-hover:bg-[#f3e1cd] sm:h-[88px] sm:w-[88px]">
 
                 <Image
@@ -132,10 +132,10 @@ export default function StatsSection() {
 
               </div>
 
-              {/* VERTICAL SEPARATOR */}
+              
               <div className="h-[65px] w-[1px] shrink-0 bg-[#eadbc9] sm:h-[75px]" />
 
-              {/* STAT CONTENT */}
+              
               <div className="min-w-0 flex-1">
 
                 <h3 className="font-serif text-[38px] font-bold leading-none tracking-tight text-[#102d20] sm:text-[43px] lg:text-[40px] xl:text-[46px]">
@@ -148,7 +148,7 @@ export default function StatsSection() {
 
               </div>
 
-              {/* HOVER ACCENT */}
+              
               <div className="absolute bottom-0 left-7 right-7 h-[3px] origin-left scale-x-0 rounded-full bg-[#bd9066] transition-transform duration-500 group-hover:scale-x-100" />
 
             </motion.div>

@@ -12,7 +12,7 @@ export default function GallerySection() {
   return (
     <section id="gallery" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-12 sm:py-16 lg:py-16">
 
-      {/* TOP RIGHT LEAF IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: 45 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -29,7 +29,7 @@ export default function GallerySection() {
         />
       </motion.div>
 
-      {/* BOTTOM LEFT LEAF IMAGE */}
+      
       <motion.div
         initial={{ opacity: 0, x: -45 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -48,7 +48,7 @@ export default function GallerySection() {
 
       <div className="relative z-10 mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16">
 
-        {/* SECTION HEADER */}
+      
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function GallerySection() {
           className="mb-12 text-center sm:mb-16"
         >
 
-          {/* LOTUS AND DECORATIVE LINES */}
+      
           <div className="mb-3 flex items-center justify-center gap-5">
 
             <span className="h-[2px] w-14 bg-[#a7794e] sm:w-24" />
@@ -82,12 +82,12 @@ export default function GallerySection() {
 
           </div>
 
-          {/* SMALL HEADING */}
+      
           <p className="font-serif text-lg font-semibold tracking-wide text-[#815b38] sm:text-xl">
             {gallerySectionData.title[0]}
           </p>
 
-          {/* MAIN HEADING */}
+      
           <h2 className="mt-3 font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-tight tracking-[-1px] text-[#183a29]">
             {gallerySectionData.homeSection.title}{" "}
             <span className="italic text-[#70885c]">
@@ -97,10 +97,10 @@ export default function GallerySection() {
 
         </motion.div>
 
-        {/* GALLERY GRID */}
+      
         <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:gap-4 xl:gap-5">
 
-          {/* LEFT LARGE IMAGE */}
+      
           <motion.div
             initial={{
               opacity: 0,
@@ -128,10 +128,10 @@ export default function GallerySection() {
             <div className="absolute inset-0 rounded-[25px] border border-white/20" />
           </motion.div>
 
-          {/* RIGHT IMAGE GRID */}
+      
           <div className="grid grid-cols-1 gap-4 sm:gap-5">
 
-            {/* TOP WIDE IMAGE */}
+      
             <motion.div
               initial={{
                 opacity: 0,
@@ -158,7 +158,7 @@ export default function GallerySection() {
               <div className="absolute inset-0 rounded-[25px] border border-white/20" />
             </motion.div>
 
-            {/* TWO BOTTOM IMAGES */}
+      
             <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
               {galleryImages.slice(2).map((image, index) => (

@@ -67,7 +67,7 @@ export default function HeroSection() {
             <span className="hidden h-[2px] w-24 bg-[#9cae8c] sm:block" />
           </motion.div>
 
-          {/* MAIN HEADING */}
+          
           <motion.h1
             variants={fadeUp}
             initial="hidden"
@@ -82,7 +82,7 @@ export default function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* DESCRIPTION */}
+          
           <motion.p
             variants={fadeUp}
             initial="hidden"

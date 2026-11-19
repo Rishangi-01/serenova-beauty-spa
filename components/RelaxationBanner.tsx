@@ -14,18 +14,18 @@ export default function RelaxationBanner() {
         backgroundImage: `url('${relaxationSectionData.backgroundImage}')`,
       }}
     >
-      {/* SOFT OVERLAY FOR TEXT READABILITY */}
-      <div className="pointer-events-none absolute inset-0 -z-0 bg-gradient-to-r from-[#fff9f2]/10 via-transparent to-transparent" />
+      
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,0,0,0.75)_0%,rgba(0,0,0,0.35)_35%,transparent_70%)]" />
 
-      {/* CONTENT */}
+      
       <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col items-center text-center lg:w-[62%] lg:translate-x-[-28%] px-5 sm:px-8 lg:px-12 xl:px-16">
-        {/* LOTUS DECORATION */}
+      
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, scale: 0.65, y: -20 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="mb-5 flex items-center justify-center gap-5 sm:mb-7"
+          className="mb-5 flex items-center justify-center gap-5 sm:mb-3"
         >
           <span className="h-[2px] w-16 bg-[#a45e32] sm:w-24" />
 
@@ -50,7 +50,7 @@ export default function RelaxationBanner() {
           <span className="h-[2px] w-16 bg-[#a45e32] sm:w-24" />
         </motion.div>
 
-        {/* HEADING */}
+      
         <motion.h2
           initial={reduceMotion ? false : { opacity: 0, y: 45 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,11 +63,14 @@ export default function RelaxationBanner() {
           className="max-w-[780px] font-serif text-[31px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-[1.13] tracking-[-1px] text-[#123c26]"
         >
           {relaxationSectionData.title[0]}
-          <br />{relaxationSectionData.title[1]}{" "}
-          <span className="italic text-[#a45a30]">{relaxationSectionData.highlight}</span>
+          <br />
+          {relaxationSectionData.title[1]}{" "}
+          <span className="italic text-[#a45a30]">
+            {relaxationSectionData.highlight}
+          </span>
         </motion.h2>
 
-        {/* DESCRIPTION */}
+      
         <motion.p
           initial={reduceMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
