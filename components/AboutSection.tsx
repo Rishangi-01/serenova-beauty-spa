@@ -78,7 +78,7 @@ export default function AboutSection() {
               y: -8,
               transition: { duration: 0.4 },
             }}
-            className="relative h-[350px] w-[57%] overflow-hidden rounded-tl-[100px] rounded-br-[65px] rounded-tr-[8px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:h-[490px] lg:h-[440px] xl:h-[530px]"
+            className="relative h-[350px] w-[57%] overflow-hidden rounded-tl-[100px] rounded-br-[65px] rounded-tr-[0px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:h-[490px] lg:h-[440px] xl:h-[530px]"
           >
             <Image
               src={aboutSectionData.mainImage}
@@ -100,7 +100,7 @@ export default function AboutSection() {
               y: -8,
               transition: { duration: 0.4 },
             }}
-            className="relative mt-16 h-[310px] w-[43%] overflow-hidden rounded-tl-[35px] rounded-tr-[8px] rounded-br-[95px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:mt-24 sm:h-[420px] lg:mt-24 lg:h-[360px] xl:mt-28 xl:h-[440px]"
+            className="relative mt-16 h-[310px] w-[43%] overflow-hidden rounded-tl-[35px] rounded-tr-[0px] rounded-br-[95px] rounded-bl-[8px] border border-[#dce3d2] shadow-[0_15px_40px_rgba(65,80,48,0.10)] sm:mt-24 sm:h-[420px] lg:mt-24 lg:h-[360px] xl:mt-28 xl:h-[440px]"
           >
             <Image
               src={aboutSectionData.familyImage}
