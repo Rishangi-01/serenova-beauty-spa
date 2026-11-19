@@ -39,7 +39,6 @@ export default function Footer() {
       className="relative isolate overflow-hidden bg-cover bg-center bg-no-repeat lg:bg-size-[100%_100%] bg-size-auto"
       style={{
         backgroundImage: `url('${siteInfoData.bgImage}')`,
-        backgroundSize: "100% 100%",
       }}
     >
       
@@ -59,7 +58,7 @@ export default function Footer() {
           className="grid grid-cols-2 gap-12 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.8fr_1fr_1.25fr] lg:gap-10"
         >
           
-          <motion.div variants={fadeUp} className="col-span-2 lg:col-span-1 text-center lg:text-left">
+          <motion.div variants={fadeUp} className="col-span-2 lg:col-span-1 text-left">
             <Link href={footerSectionData.columns[0].links[0].href} className="inline-block">
               <Image
                 src={siteInfoData.logo}
@@ -98,9 +97,9 @@ export default function Footer() {
                       duration: 0.3,
                       delay: index * 0.08,
                     }}
-                    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#155522] text-white shadow-md transition-colors duration-300 hover:bg-[#a65b29]"
+                    className="flex h-8 w-8 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-[#155522] text-white shadow-md transition-colors duration-300 hover:bg-[#a65b29]"
                   >
-                    <Icon size={21} />
+                    <Icon className="lg:w-[21px] lg:h-[21px] w-[16px] h-[16px]" />
                   </motion.a>
                 );
               })}
@@ -176,8 +175,8 @@ export default function Footer() {
             <div className="space-y-4">
           
               <div className="group flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
-                  <MapPin size={21} />
+                <span className="flex h-8 w-8 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
+                  <MapPin className="lg:w-[21px] lg:h-[21px] w-[16px] h-[16px]" />
                 </span>
                 <p className="pt-1 text-[16px] leading-7 text-[#292d29]">
                   {siteInfoData.addressLines[0]}
@@ -191,8 +190,8 @@ export default function Footer() {
                 href={footerSectionData.contactDetails[0].href}
                 className="group flex items-center gap-4"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
-                  <Phone size={20} />
+                <span className="flex h-8 w-8 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
+                  <Phone className="lg:w-[21px] lg:h-[21px] w-[16px] h-[16px]" />
                 </span>
                 <span className="text-[16px] text-[#292d29] transition-colors group-hover:text-[#a65b29]">
                   {siteInfoData.phones[0]}
@@ -204,8 +203,8 @@ export default function Footer() {
                 href={footerSectionData.contactDetails[1].href}
                 className="group flex items-center gap-4"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
-                  <Mail size={20} />
+                <span className="flex h-8 w-8 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
+                  <Mail className="lg:w-[21px] lg:h-[21px] w-[16px] h-[16px]" />
                 </span>
                 <span className="break-all text-[15px] text-[#292d29] transition-colors group-hover:text-[#a65b29] sm:text-[16px]">
                   {siteInfoData.emails[0]}
@@ -214,8 +213,8 @@ export default function Footer() {
 
               
               <div className="group flex items-center gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
-                  <Clock size={20} />
+                <span className="flex h-8 w-8 lg:h-12 lg:w-12 shrink-0 items-center justify-center rounded-full bg-[#e8ecd5] text-[#155522] transition-all duration-300 group-hover:bg-[#155522] group-hover:text-white">
+                  <Clock className="lg:w-[21px] lg:h-[21px] w-[16px] h-[16px]" />
                 </span>
                 <span className="text-[15px] leading-6 text-[#292d29] sm:text-[16px]">
                   {siteInfoData.hours[0].daysShort}{siteInfoData.hours[0].timeSeparator}{siteInfoData.hours[0].time}

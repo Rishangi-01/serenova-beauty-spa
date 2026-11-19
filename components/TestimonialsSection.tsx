@@ -101,7 +101,7 @@ export default function TestimonialsSection() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="relative mr-1 hidden h-[90px] w-[105px] shrink-0 sm:block lg:mr-4"
+                  className="relative mr-1 h-[90px] w-[105px] shrink-0 sm:block lg:mr-4"
                 >
                   <Image
                     src={testimonialsSectionData.decorativeSymbol}

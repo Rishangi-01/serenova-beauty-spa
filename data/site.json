@@ -1040,7 +1040,7 @@
               "teamBottom": "/images/team-towel-bottom.webp",
               "lotus": "/images/lotus-icon.webp",
               "lotusLabel": "Lotus decoration",
-              "lotusDecoration": "/images/lotus-decoration.webp",
+              "lotusDecoration": "/images/lotus-icon.webp",
               "bottomLeftSpa": "/images/bottom-left-spa.webp",
               "bottomRightSpa": "/images/bottom-right-spa.webp"
             },
@@ -2033,7 +2033,7 @@
             "showLabelTemplate": "Show testimonial {number}",
             "text": "Real experiences from our valued clients who love our care, service, and results.",
             "averageRating": "5.0",
-            "decorativeSymbol": "/images/lotus-decoration.webp",
+            "decorativeSymbol": "/images/lotus-icon.webp",
             "quoteMark": "\u201c",
             "reviewSummary": [
               "From 3K+",
@@ -3060,7 +3060,7 @@
         "variants": {
           "SerenovaAppointment1": {
             "backgroundImage": "/images/appointment-bg.webp",
-            "decorationSymbol": "/images/lotus-decoration.webp",
+            "decorationSymbol": "/images/lotus-icon.webp",
             "eyebrow": "Make An Appointment",
             "title": "Relax Anytime",
             "highlight": "Any Day",
