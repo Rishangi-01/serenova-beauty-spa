@@ -9,7 +9,7 @@ export default function StatsSection() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#fcf8f4] py-16 sm:py-20 lg:py-24">
+    <section className="relative isolate w-full overflow-hidden bg-[#fcf8f4] py-12 sm:py-16 lg:py-16">
 
       {/* TOP RIGHT DECORATIVE IMAGE */}
       <motion.div

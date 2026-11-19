@@ -11,7 +11,7 @@ export default function TeamSection() {
   const specialists = team.members;
 
   return (
-    <section id="team" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
+    <section id="team" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-12 sm:py-16 lg:py-16">
 
       {/* TOP RIGHT DECORATIVE IMAGE */}
       <motion.div
@@ -71,7 +71,7 @@ export default function TeamSection() {
 
             <div className="relative flex items-center justify-between gap-2">
 
-              <h2 className="font-serif text-[39px] font-bold leading-[1.05] tracking-tight text-[#143824] sm:text-[53px] lg:text-[57px] xl:text-[62px]">
+              <h2 className="font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-[1.05] tracking-tight text-[#143824]">
                 {team.title}
                 <br />
                 <span className="italic text-[#a45a30]">

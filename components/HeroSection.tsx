@@ -27,7 +27,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative isolate min-h-[650px] w-full overflow-hidden bg-[#f8f3ee] sm:min-h-[720px] lg:min-h-[calc(100vh-115px)]">
+    <section id="home" className="scroll-mt-[120px] relative isolate min-h-[650px] w-full overflow-hidden bg-[#f8f3ee] sm:min-h-[720px] lg:min-h-[calc(100vh-115px)]">
 
       
       <motion.div
@@ -93,37 +93,12 @@ export default function HeroSection() {
             {heroSlideData.text}
           </motion.p>
 
-          {/* OPTIONAL CTA BUTTONS */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.95 }}
-            className="mt-9 flex flex-wrap items-center gap-4 sm:mt-11"
-          >
-            <a
-              href={primaryButton.href}
-              className="group inline-flex items-center gap-3 rounded-full bg-[#637e5b] px-7 py-4 text-sm font-semibold tracking-wide text-white shadow-lg shadow-[#637e5b]/20 transition-all duration-300 hover:-translate-y-1 hover:bg-[#496644] hover:shadow-xl sm:px-9 sm:text-base"
-            >
-              {primaryButton.label}
 
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                {decorativeSymbols.buttonArrow}
-              </span>
-            </a>
-
-            <a
-              href={secondaryButton.href}
-              className="rounded-full border border-[#637e5b]/60 px-7 py-4 text-sm font-semibold tracking-wide text-[#526d48] transition-all duration-300 hover:bg-[#637e5b] hover:text-white sm:px-9 sm:text-base"
-            >
-              {secondaryButton.label}
-            </a>
-          </motion.div>
 
         </div>
       </div>
 
-      {/* BOTTOM FADE */}
+      
       <div className="pointer-events-none absolute bottom-0 left-0 h-16 w-full bg-gradient-to-t from-[#f8f3ee]/20 to-transparent" />
 
     </section>

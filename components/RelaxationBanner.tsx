@@ -9,7 +9,7 @@ export default function RelaxationBanner() {
 
   return (
     <section
-      className="relative isolate flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat py-16 sm:min-h-[450px] lg:min-h-[500px] xl:min-h-[520px]"
+      className="relative isolate flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat py-12 sm:py-16 lg:py-16 sm:min-h-[450px] lg:min-h-[500px] xl:min-h-[520px]"
       style={{
         backgroundImage: `url('${relaxationSectionData.backgroundImage}')`,
       }}
@@ -36,7 +36,7 @@ export default function RelaxationBanner() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative mr-1 hidden h-[90px] w-[105px] shrink-0 sm:block lg:mr-4"
+            className="relative mr-1 h-[90px] w-[105px] shrink-0 lg:mr-4"
           >
             <Image
               src={siteDecorativeAssets.lotusDecoration}
@@ -60,7 +60,7 @@ export default function RelaxationBanner() {
             delay: 0.15,
             ease: "easeOut",
           }}
-          className="max-w-[780px] font-serif text-[34px] font-bold leading-[1.13] tracking-[-1px] text-[#123c26] sm:text-[45px] md:text-[52px] lg:text-[53px] xl:text-[62px]"
+          className="max-w-[780px] font-serif text-[31px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-[1.13] tracking-[-1px] text-[#123c26]"
         >
           {relaxationSectionData.title[0]}
           <br />{relaxationSectionData.title[1]}{" "}
@@ -76,7 +76,7 @@ export default function RelaxationBanner() {
             duration: 0.9,
             delay: 0.35,
           }}
-          className="mt-5 max-w-[750px] text-[15px] leading-[1.8] text-[#34383a] sm:mt-6 sm:text-[18px] md:text-[20px] lg:text-[21px]"
+          className="mt-5 max-w-[750px] text-[14px] leading-[1.8] text-[#34383a] sm:mt-6 sm:text-[18px] md:text-[20px] lg:text-[21px]"
         >
           {relaxationSectionData.description}
         </motion.p>

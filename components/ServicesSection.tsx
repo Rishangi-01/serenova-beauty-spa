@@ -36,7 +36,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative isolate w-full overflow-hidden bg-[#fcf9f6] py-16 sm:py-20 lg:py-24"
+      className="relative isolate w-full overflow-hidden bg-[#fcf9f6] py-12 sm:py-16 lg:py-16"
     >
 
       
@@ -121,7 +121,7 @@ export default function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-serif text-[34px] font-bold leading-[1.2] tracking-tight text-[#153c2b] sm:text-[43px] md:text-[49px] lg:text-[52px]"
+            className="font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-[1.2] tracking-tight text-[#153c2b]"
           >
             {servicesData.title}{" "}
             <span className="italic text-[#71875c]">

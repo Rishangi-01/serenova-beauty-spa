@@ -10,7 +10,7 @@ export default function GallerySection() {
   const galleryImages = gallerySectionData.items.slice(0, 4);
 
   return (
-    <section id="gallery" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-20 sm:py-24 lg:py-28">
+    <section id="gallery" className="relative isolate w-full overflow-hidden bg-[#fcf8f5] py-12 sm:py-16 lg:py-16">
 
       {/* TOP RIGHT LEAF IMAGE */}
       <motion.div
@@ -88,7 +88,7 @@ export default function GallerySection() {
           </p>
 
           {/* MAIN HEADING */}
-          <h2 className="mt-3 font-serif text-[38px] font-bold leading-tight tracking-[-1px] text-[#183a29] sm:text-[50px] md:text-[58px] lg:text-[62px]">
+          <h2 className="mt-3 font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-tight tracking-[-1px] text-[#183a29]">
             {gallerySectionData.homeSection.title}{" "}
             <span className="italic text-[#70885c]">
               {gallerySectionData.homeSection.highlight}

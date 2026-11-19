@@ -1116,7 +1116,7 @@
             "links": [
               {
                 "label": "Home",
-                "href": "/"
+                "href": "#home"
               },
               {
                 "label": "About Us",
@@ -2033,7 +2033,7 @@
             "showLabelTemplate": "Show testimonial {number}",
             "text": "Real experiences from our valued clients who love our care, service, and results.",
             "averageRating": "5.0",
-            "decorativeSymbol": "\u2667",
+            "decorativeSymbol": "/images/lotus-decoration.webp",
             "quoteMark": "\u201c",
             "reviewSummary": [
               "From 3K+",
@@ -3060,7 +3060,7 @@
         "variants": {
           "SerenovaAppointment1": {
             "backgroundImage": "/images/appointment-bg.webp",
-            "decorationSymbol": "\u2740",
+            "decorationSymbol": "/images/lotus-decoration.webp",
             "eyebrow": "Make An Appointment",
             "title": "Relax Anytime",
             "highlight": "Any Day",

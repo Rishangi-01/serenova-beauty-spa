@@ -1,8 +1,7 @@
-
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   UserRound,
@@ -13,6 +12,7 @@ import {
   ListFilter,
 } from "lucide-react";
 import { appointmentSectionData } from "@/data";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -25,6 +25,7 @@ const fadeUp = {
 
 export default function AppointmentSection() {
   const [submitted, setSubmitted] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ export default function AppointmentSection() {
   return (
     <section
       id="contact"
-      className="relative isolate w-full min-h-[850px] overflow-hidden bg-[#4c321f] bg-cover bg-center bg-no-repeat py-20 sm:py-24 lg:min-h-[900px] lg:py-20"
+      className="relative isolate w-full min-h-[850px] overflow-hidden bg-[#4c321f] bg-cover bg-center bg-no-repeat lg:min-h-[900px] py-12 sm:py-16 lg:py-16"
       style={{
         backgroundImage: `url('${appointmentSectionData.backgroundImage}')`,
       }}
@@ -45,8 +46,6 @@ export default function AppointmentSection() {
 
       <div className="mx-auto flex min-h-full w-full max-w-[1600px] items-center justify-end px-4 sm:px-8 lg:px-12">
         <div className="w-full max-w-[760px] lg:mr-4 xl:mr-8">
-
-          
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -54,13 +53,26 @@ export default function AppointmentSection() {
             viewport={{ once: true, amount: 0.2 }}
             className="mb-9 text-center"
           >
-          
             <div className="mb-4 flex items-center justify-center gap-5">
               <span className="h-px w-12 bg-[#e9c5a5]/80 sm:w-20" />
 
-              <span className="text-4xl leading-none text-[#f5d4b6]">
-                {appointmentSectionData.decorationSymbol}
-              </span>
+              <motion.div
+                animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative mr-1 hidden h-[90px] w-[105px] shrink-0 sm:block lg:mr-4"
+              >
+                <Image
+                  src={appointmentSectionData.decorationSymbol}
+                  alt=""
+                  fill
+                  sizes="105px"
+                  className="object-contain"
+                />
+              </motion.div>
 
               <span className="h-px w-12 bg-[#e9c5a5]/80 sm:w-20" />
             </div>
@@ -69,7 +81,7 @@ export default function AppointmentSection() {
               {appointmentSectionData.eyebrow}
             </p>
 
-            <h2 className="font-serif text-4xl font-bold leading-[1.15] text-white sm:text-5xl lg:text-[56px]">
+            <h2 className="font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-bold leading-[1.15] text-white">
               {appointmentSectionData.title}{" "}
               <span className="italic text-[#e9ad82]">
                 {appointmentSectionData.highlight}
@@ -81,7 +93,6 @@ export default function AppointmentSection() {
             </p>
           </motion.div>
 
-          
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -92,61 +103,63 @@ export default function AppointmentSection() {
           >
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
-
-          
                 <div className="group relative">
                   <UserRound className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b] transition-transform group-focus-within:scale-110" />
 
                   <input
                     type={appointmentSectionData.fields.firstName.type}
                     name={appointmentSectionData.fields.firstName.name}
-                    placeholder={appointmentSectionData.fields.firstName.placeholder}
+                    placeholder={
+                      appointmentSectionData.fields.firstName.placeholder
+                    }
                     required={appointmentSectionData.fields.firstName.required}
                     className="h-[60px] w-full rounded-xl border border-[#d8b49c] bg-white/75 pl-14 pr-4 text-base text-[#39291f] outline-none transition-all placeholder:text-[#555] hover:border-[#a85c2b] focus:border-[#a85c2b] focus:bg-white focus:ring-4 focus:ring-[#a85c2b]/10"
                   />
                 </div>
 
-          
                 <div className="group relative">
                   <UserRound className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b] transition-transform group-focus-within:scale-110" />
 
                   <input
                     type={appointmentSectionData.fields.lastName.type}
                     name={appointmentSectionData.fields.lastName.name}
-                    placeholder={appointmentSectionData.fields.lastName.placeholder}
+                    placeholder={
+                      appointmentSectionData.fields.lastName.placeholder
+                    }
                     required={appointmentSectionData.fields.lastName.required}
                     className="h-[60px] w-full rounded-xl border border-[#d8b49c] bg-white/75 pl-14 pr-4 text-base text-[#39291f] outline-none transition-all placeholder:text-[#555] hover:border-[#a85c2b] focus:border-[#a85c2b] focus:bg-white focus:ring-4 focus:ring-[#a85c2b]/10"
                   />
                 </div>
 
-          
                 <div className="group relative">
                   <Mail className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b]" />
 
                   <input
                     type={appointmentSectionData.fields.email.type}
                     name={appointmentSectionData.fields.email.name}
-                    placeholder={appointmentSectionData.fields.email.placeholder}
+                    placeholder={
+                      appointmentSectionData.fields.email.placeholder
+                    }
                     required={appointmentSectionData.fields.email.required}
                     className="h-[60px] w-full rounded-xl border border-[#d8b49c] bg-white/75 pl-14 pr-4 text-base text-[#39291f] outline-none transition-all placeholder:text-[#555] hover:border-[#a85c2b] focus:border-[#a85c2b] focus:bg-white focus:ring-4 focus:ring-[#a85c2b]/10"
                   />
                 </div>
 
-          
                 <div className="group relative">
                   <Phone className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b]" />
 
                   <input
                     type={appointmentSectionData.fields.phone.type}
                     name={appointmentSectionData.fields.phone.name}
-                    placeholder={appointmentSectionData.fields.phone.placeholder}
+                    placeholder={
+                      appointmentSectionData.fields.phone.placeholder
+                    }
                     required={appointmentSectionData.fields.phone.required}
                     pattern={appointmentSectionData.fields.phone.pattern}
                     className="h-[60px] w-full rounded-xl border border-[#d8b49c] bg-white/75 pl-14 pr-4 text-base text-[#39291f] outline-none transition-all placeholder:text-[#555] hover:border-[#a85c2b] focus:border-[#a85c2b] focus:bg-white focus:ring-4 focus:ring-[#a85c2b]/10"
                   />
                 </div>
 
-          
                 <div className="group relative sm:col-span-2">
                   <ListFilter className="pointer-events-none absolute left-5 top-1/2 z-10 h-6 w-6 -translate-y-1/2 text-[#a85c2b]" />
 
@@ -160,19 +173,20 @@ export default function AppointmentSection() {
                       {appointmentSectionData.fields.service.placeholder}
                     </option>
 
-                    {appointmentSectionData.fields.service.options.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
-                      </option>
-                    ))}
+                    {appointmentSectionData.fields.service.options.map(
+                      (service) => (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      ),
+                    )}
                   </select>
 
                   <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-xl text-[#a85c2b]">
-                   {appointmentSectionData.dropdownIndicator}
+                    {appointmentSectionData.dropdownIndicator}
                   </span>
                 </div>
 
-          
                 <div className="group relative">
                   <CalendarDays className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b]" />
 
@@ -184,7 +198,6 @@ export default function AppointmentSection() {
                   />
                 </div>
 
-          
                 <div className="group relative">
                   <Clock3 className="absolute left-5 top-1/2 h-6 w-6 -translate-y-1/2 text-[#a85c2b]" />
 
@@ -206,12 +219,11 @@ export default function AppointmentSection() {
                   </select>
 
                   <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-xl text-[#a85c2b]">
-                   {appointmentSectionData.dropdownIndicator}
+                    {appointmentSectionData.dropdownIndicator}
                   </span>
                 </div>
               </div>
 
-              
               <div className="mt-7 flex flex-col items-center">
                 <motion.button
                   type="submit"
@@ -219,7 +231,9 @@ export default function AppointmentSection() {
                   whileTap={{ scale: 0.97 }}
                   className="group flex min-h-[62px] w-full max-w-[400px] items-center justify-center gap-5 rounded-full bg-gradient-to-r from-[#a85c2b] to-[#bd713a] px-7 py-4 text-base font-semibold tracking-wide text-white shadow-[0_10px_25px_rgba(168,92,43,0.25)] transition-shadow hover:shadow-[0_15px_35px_rgba(168,92,43,0.4)] sm:text-lg"
                 >
-                  {submitted ? appointmentSectionData.submittedLabel : appointmentSectionData.submitLabel}
+                  {submitted
+                    ? appointmentSectionData.submittedLabel
+                    : appointmentSectionData.submitLabel}
 
                   <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2" />
                 </motion.button>

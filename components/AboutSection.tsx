@@ -25,7 +25,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section id="about" className="relative isolate w-full overflow-hidden bg-[#fcf9f5] py-20 sm:py-24 lg:py-28">
+    <section id="about" className="relative isolate w-full overflow-hidden bg-[#fcf9f5] py-12 sm:py-16 lg:py-16">
 
 
       <motion.div
@@ -62,9 +62,6 @@ export default function AboutSection() {
       </motion.div>
 
       <div className="relative z-10 mx-auto grid max-w-[1600px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-12 xl:gap-20 xl:px-16">
-
-
-
 
 
         <motion.div
@@ -171,7 +168,7 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="font-serif text-[36px] font-medium leading-[1.2] tracking-[-1px] text-[#171717] sm:text-[45px] md:text-[52px] lg:text-[44px] xl:text-[56px]"
+            className="font-serif text-[34px] sm:text-[43px] md:text-[49px] lg:text-[52px] font-medium leading-[1.2] tracking-[-1px] text-[#171717]"
           >
             {homeSection.title[0]}
 

@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -12,18 +12,82 @@ import {
   Menu,
   X,
 } from "lucide-react";
+
 import { navigationData, siteInfoData } from "@/data";
 
 export default function Navbar() {
   const navLinks = navigationData.links;
   const homeLink = navLinks[0];
+
   const [active, setActive] = useState(homeLink.label);
   const [mobileOpen, setMobileOpen] = useState(false);
-  
+
+ 
+  useEffect(() => {
+    const sectionIds = navLinks
+      .map((link) => link.href.split("#")[1])
+      .filter(Boolean);
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => !!section);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
+
+        if (visibleSections.length > 0) {
+          const currentId = visibleSections[0].target.id;
+
+          const currentLink = navLinks.find(
+            (link) => link.href.split("#")[1] === currentId
+          );
+
+          if (currentLink) {
+            setActive(currentLink.label);
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: [0, 0.1, 0.25, 0.5, 0.75],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [navLinks]);
+
+  // Click navigation
+  const handleNavClick = (link: (typeof navLinks)[number]) => {
+    setActive(link.label);
+    setMobileOpen(false);
+
+    const sectionId = link.href.split("#")[1];
+
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
 
   const closeMenu = () => {
     setMobileOpen(false);
-  
   };
 
   return (
@@ -33,15 +97,12 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-xl shadow-[0_2px_20px_rgba(30,50,25,0.06)]"
     >
-      <div className="mx-auto flex min-h-[100px] max-w-[1600px] items-center justify-between py-2 lg:min-h-[115px] px-5 sm:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto flex min-h-[100px] max-w-[1600px] items-center justify-between py-2 px-5 sm:px-8 lg:min-h-[115px] lg:px-12 xl:px-16">
 
-        {/* LOGO */}
+        {/* Logo */}
         <Link
           href={homeLink.href}
-          onClick={() => {
-            setActive(homeLink.label);
-            closeMenu();
-          }}
+          onClick={() => handleNavClick(homeLink)}
           className="relative z-50 shrink-0"
         >
           <motion.div
@@ -54,41 +115,24 @@ export default function Navbar() {
               width={370}
               height={121}
               priority
-              className="h-auto w-[205px] object-contain sm:w-[250px] lg:w-[290px] xl:w-[285px]"
+              className="h-auto w-[200px] object-contain sm:w-[200px] lg:w-[220px] xl:w-[225px]"
             />
           </motion.div>
         </Link>
 
-        {/* DESKTOP NAVIGATION */}
-        <nav aria-label={navigationData.ariaLabel} className="hidden items-center gap-3 lg:flex xl:gap-7">
-
-          {navLinks.slice(0, 2).map((link) => (
+        {/* Desktop Navigation */}
+        <nav
+          aria-label={navigationData.ariaLabel}
+          className="hidden items-center gap-3 lg:flex xl:gap-7"
+        >
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              onClick={() => setActive(link.label)}
-              className="group relative"
-            >
-              <motion.span
-                whileHover={{ y: -2 }}
-                className={`relative flex items-center rounded-full px-6 py-3 text-[17px] font-medium transition-all duration-300 xl:text-[19px]
-                  ${
-                    active === link.label
-                      ? "bg-[#637e5b] text-white shadow-md"
-                      : "text-[#17251a] hover:bg-[#edf2eb] hover:text-[#637e5b]"
-                  }`}
-              >
-                {link.label}
-              </motion.span>
-            </Link>
-          ))}
-
-          {/* REMAINING LINKS */}
-          {navLinks.slice(2).map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setActive(link.label)}
+              onClick={() => handleNavClick(link)}
+              aria-current={
+                active === link.label ? "location" : undefined
+              }
               className={`rounded-full px-6 py-3 text-[17px] font-medium transition-all duration-300 xl:text-[19px]
                 ${
                   active === link.label
@@ -101,10 +145,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? siteInfoData.mobileMenu.closeLabel : siteInfoData.mobileMenu.openLabel}
+          aria-label={
+            mobileOpen
+              ? siteInfoData.mobileMenu.closeLabel
+              : siteInfoData.mobileMenu.openLabel
+          }
           aria-expanded={mobileOpen}
           className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full bg-[#637e5b] text-white transition-all duration-300 hover:bg-[#4c6747] lg:hidden"
         >
@@ -132,7 +180,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE NAVIGATION */}
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -142,9 +190,11 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: "easeInOut" }}
             className="absolute left-0 top-full w-full overflow-hidden border-t border-[#edf0e9] bg-white shadow-xl lg:hidden"
           >
-            <nav aria-label={siteInfoData.mobileMenu.ariaLabel} className="mx-auto flex max-w-[700px] flex-col px-6 py-5">
-
-              {navLinks.slice(0, 2).map((link, index) => (
+            <nav
+              aria-label={siteInfoData.mobileMenu.ariaLabel}
+              className="mx-auto flex max-w-[700px] flex-col px-6 py-5"
+            >
+              {navLinks.map((link, index) => (
                 <motion.div
                   key={link.label}
                   initial={{ opacity: 0, x: -15 }}
@@ -153,10 +203,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => {
-                      setActive(link.label);
-                      closeMenu();
-                    }}
+                    onClick={() => handleNavClick(link)}
                     className={`block rounded-xl px-5 py-3.5 text-[16px] font-medium transition-all
                       ${
                         active === link.label
@@ -168,32 +215,6 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-
-              {navLinks.slice(2).map((link, index) => (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (index + 3) * 0.07 }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={() => {
-                      setActive(link.label);
-                      closeMenu();
-                    }}
-                    className={`block rounded-xl px-5 py-3.5 text-[16px] font-medium transition-all
-                      ${
-                        active === link.label
-                          ? "bg-[#637e5b] text-white"
-                          : "text-[#17251a] hover:bg-[#edf2eb]"
-                      }`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-
             </nav>
           </motion.div>
         )}
