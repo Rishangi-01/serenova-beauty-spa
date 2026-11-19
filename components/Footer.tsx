@@ -69,7 +69,7 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="mx-auto mt-3 max-w-[336px] text-[16px] leading-7 text-[#252b27] lg:mx-0 lg:text-[17px]">
+            <p className="mt-3 max-w-[336px] text-[16px] leading-7 text-[#252b27] lg:mx-0 lg:text-[17px]">
               {footerSectionData.about}
             </p>
 
